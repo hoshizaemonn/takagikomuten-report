@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高木工務店 レポート一覧</title>
+    <style>
+        :root {
+            --primary: #1a2744;
+            --green: #2ea66a;
+            --green-light: #d4f0e0;
+            --blue: #3b7dd8;
+            --blue-light: #dfeafb;
+            --accent: #e8963e;
+            --accent-light: rgba(232,150,62,.12);
+            --red: #d94452;
+            --red-light: #fde8ea;
+            --gray-50: #f8f9fb;
+            --gray-100: #eef0f4;
+            --gray-200: #dce0e8;
+            --gray-400: #9aa2b1;
+            --gray-600: #5c6478;
+            --gray-800: #2d3344;
+            --shadow: 0 2px 16px rgba(26,39,68,.09);
+            --shadow-lg: 0 8px 40px rgba(26,39,68,.13);
+            --radius: 16px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c3e6b 100%);
+            color: #fff;
+            padding: 60px 24px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(46,166,106,.18) 0%, transparent 60%);
+        }
+        .hero > * { position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(46,166,106,.25);
+            border: 1px solid rgba(46,166,106,.4);
+            border-radius: 100px;
+            padding: 6px 20px;
+            font-size: .8rem;
+            letter-spacing: .08em;
+            margin-bottom: 16px;
+            color: #a0f0c0;
+        }
+        .hero h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .hero p {
+            font-size: 1rem;
+            opacity: .8;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .hero-date {
+            font-size: .85rem;
+            opacity: .6;
+            margin-top: 8px;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== CARDS SECTION ===== */
+        .cards-section {
+            padding: 48px 0 64px;
+        }
+        .cards-section h2 {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .cards-section .subtitle {
+            text-align: center;
+            font-size: .9rem;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 700px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform .2s ease, box-shadow .2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .card-bar {
+            height: 5px;
+        }
+        .card-blue .card-bar { background: var(--blue); }
+        .card-green .card-bar { background: var(--green); }
+        .card-orange .card-bar { background: var(--accent); }
+
+        .card-body {
+            padding: 28px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+        .card-blue .card-icon { background: var(--blue-light); }
+        .card-green .card-icon { background: var(--green-light); }
+        .card-orange .card-icon { background: var(--accent-light); }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: .85rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+        .tag-blue { background: var(--blue-light); color: var(--blue); }
+        .tag-green { background: var(--green-light); color: var(--green); }
+        .tag-orange { background: rgba(232,150,62,.12); color: var(--accent); }
+        .tag-red { background: var(--red-light); color: var(--red); }
+
+        .card-date {
+            font-size: .75rem;
+            color: var(--gray-400);
+            margin-bottom: 16px;
+        }
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: .85rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            transition: opacity .2s ease;
+            align-self: flex-start;
+        }
+        .card-cta:hover { opacity: .85; }
+        .card-blue .card-cta { background: var(--blue); }
+        .card-green .card-cta { background: var(--green); }
+        .card-orange .card-cta { background: var(--accent); }
+        .card-cta svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ===== NOTE ===== */
+        .note {
+            background: var(--gray-100);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin: 0 auto 48px;
+            max-width: 960px;
+            text-align: center;
+        }
+        .note p {
+            font-size: .85rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            font-size: .78rem;
+            color: var(--gray-400);
+            border-top: 1px solid var(--gray-200);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">HP&#36939;&#29992;&#12524;&#12509;&#12540;&#12488;</div>
+        <h1>&#39640;&#26408;&#24037;&#21209;&#24215; &#12524;&#12509;&#12540;&#12488;&#19968;&#35239;</h1>
+        <p>&#12507;&#12540;&#12512;&#12506;&#12540;&#12472;&#36939;&#29992;&#12395;&#38306;&#12377;&#12427;&#12524;&#12509;&#12540;&#12488;&#12434;&#12414;&#12392;&#12417;&#12390;&#12356;&#12414;&#12377;&#12290;&#21508;&#12524;&#12509;&#12540;&#12488;&#12434;&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#12372;&#30906;&#35469;&#12367;&#12384;&#12373;&#12356;&#12290;</p>
+        <div class="hero-date">2026&#24180;4&#26376;7&#26085; &#26356;&#26032;</div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="cards-section">
+        <div class="container">
+            <h2>&#12524;&#12509;&#12540;&#12488;</h2>
+            <p class="subtitle">&#21508;&#12459;&#12540;&#12489;&#12434;&#12463;&#12522;&#12483;&#12463;&#12377;&#12427;&#12392;&#35443;&#32048;&#12524;&#12509;&#12540;&#12488;&#12434;&#12372;&#35239;&#12356;&#12383;&#12384;&#12369;&#12414;&#12377;</p>
+
+            <div class="cards-grid">
+
+                <!-- Card 1: &#26045;&#31574;&#36914;&#25431;&#12524;&#12509;&#12540;&#12488; (blue) -->
+                <div class="card card-blue">
+                    <div class="card-bar"></div>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b7dd8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">&#26045;&#31574;&#36914;&#25431;&#12524;&#12509;&#12540;&#12488;</div>
+                        <div class="card-desc">&#23455;&#26045;&#12375;&#12383;&#26045;&#31574;&#12398;&#22577;&#21578;&#12391;&#12377;&#12290;SEO&#25216;&#34899;&#20462;&#27491;&#65288;14&#12501;&#12449;&#12452;&#12523;&#65289;&#12289;&#35352;&#20107;10&#26412;&#25237;&#31295;&#12289;CTA&#23566;&#32218;&#25972;&#20633;&#12289;GBP&#26368;&#36969;&#21270;&#12398;&#23436;&#20102;&#29366;&#27841;&#12392;&#20170;&#24460;&#12398;&#20104;&#23450;&#12434;&#12372;&#30906;&#35469;&#12356;&#12383;&#12384;&#12369;&#12414;&#12377;&#12290;</div>
+                        <div class="card-tags">
+                            <span class="tag tag-blue">Phase 1 &#23436;&#20102;</span>
+                            <span class="tag tag-blue">SEO&#20462;&#27491; &#23436;&#20102;</span>
+                            <span class="tag tag-blue">&#35352;&#20107;10&#26412;</span>
+                            <span class="tag tag-green">&#21021;CV&#36948;&#25104;</span>
+                        </div>
+                        <div class="card-date">2026&#24180;4&#26376;7&#26085;&#26356;&#26032;</div>
+                        <a href="progress-report.html" class="card-cta">
+                            &#12524;&#12509;&#12540;&#12488;&#12434;&#35211;&#12427;
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: GA4 &#215; &#12469;&#12540;&#12481;&#12467;&#12531;&#12477;&#12540;&#12523; &#20998;&#26512;&#12524;&#12509;&#12540;&#12488; (green) -->
+                <div class="card card-green">
+                    <div class="card-bar"></div>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ea66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 20V10"/>
+                                <path d="M12 20V4"/>
+                                <path d="M6 20v-6"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">GA4 &#215; &#12469;&#12540;&#12481;&#12467;&#12531;&#12477;&#12540;&#12523;<br>&#20998;&#26512;&#12524;&#12509;&#12540;&#12488;</div>
+                        <div class="card-desc">30&#26085;&#38291;&#12398;&#12450;&#12463;&#12475;&#12473;&#12487;&#12540;&#12479;&#12434;&#35443;&#32048;&#20998;&#26512;&#12290;PV90&#65288;+143%&#22679;&#65289;&#12289;&#26908;&#32034;&#12463;&#12522;&#12483;&#12463;11&#22238;&#65288;+1,000%&#65289;&#12289;19&#12461;&#12540;&#12527;&#12540;&#12489;&#12398;&#38918;&#20301;&#12539;CTR&#12289;&#12506;&#12540;&#12472;&#21029;&#12450;&#12463;&#12475;&#12473;&#12487;&#12540;&#12479;&#12434;&#35352;&#36617;&#12290;</div>
+                        <div class="card-tags">
+                            <span class="tag tag-green">PV +143%</span>
+                            <span class="tag tag-green">&#12463;&#12522;&#12483;&#12463; +1,000%</span>
+                            <span class="tag tag-green">19&#12461;&#12540;&#12527;&#12540;&#12489;</span>
+                            <span class="tag tag-green">3/8&#12316;4/6 &#26368;&#26032;</span>
+                        </div>
+                        <div class="card-date">2026&#24180;4&#26376;7&#26085; &#26368;&#26032;&#12487;&#12540;&#12479;</div>
+                        <a href="ga4-report.html" class="card-cta">
+                            &#12524;&#12509;&#12540;&#12488;&#12434;&#35211;&#12427;
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: &#26989;&#30028;&#27604;&#36611;&#12524;&#12509;&#12540;&#12488; (orange) -->
+                <div class="card card-orange">
+                    <div class="card-bar"></div>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8963e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20V10"/>
+                                <path d="M18 20V4"/>
+                                <path d="M6 20v-4"/>
+                                <path d="M2 20h20"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">&#26989;&#30028;&#27604;&#36611;&#12524;&#12509;&#12540;&#12488;</div>
+                        <div class="card-desc">&#39640;&#26408;&#24037;&#21209;&#24215;&#12398;&#29694;&#22312;&#22320;&#12434;&#26989;&#30028;&#24179;&#22343;&#12392;&#27604;&#36611;&#12290;&#20013;&#23567;&#24037;&#21209;&#24215;&#12539;&#35299;&#20307;&#26989;&#32773;&#12539;&#12522;&#12501;&#12457;&#12540;&#12512;&#20250;&#31038;&#12392;&#12398;&#24046;&#20998;&#12434;&#21487;&#35222;&#21270;&#12375;&#12289;6&#12534;&#26376;&#24460;&#12398;&#30446;&#27161;&#20516;&#12392;&#20855;&#20307;&#30340;&#12394;&#12450;&#12463;&#12471;&#12519;&#12531;&#12503;&#12521;&#12531;&#12434;&#35352;&#36617;&#12375;&#12390;&#12356;&#12414;&#12377;&#12290;</div>
+                        <div class="card-tags">
+                            <span class="tag tag-orange">&#26989;&#30028;&#24179;&#22343;&#27604;&#36611;</span>
+                            <span class="tag tag-orange">6&#12534;&#26376;&#12525;&#12540;&#12489;&#12510;&#12483;&#12503;</span>
+                            <span class="tag tag-orange">KPI&#30446;&#27161;</span>
+                            <span class="tag tag-orange">&#25913;&#21892;&#25552;&#26696;</span>
+                        </div>
+                        <div class="card-date">2026年4月7日 更新</div>
+                        <a href="industry-report.html" class="card-cta">
+                            &#12524;&#12509;&#12540;&#12488;&#12434;&#35211;&#12427;
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTE -->
+    <div class="container">
+        <div class="note">
+            <p>&#12371;&#12398;&#12506;&#12540;&#12472;&#12399;&#23450;&#26399;&#30340;&#12395;&#26356;&#26032;&#12373;&#12428;&#12414;&#12377;&#12290;&#26368;&#26032;&#12398;&#26045;&#31574;&#29366;&#27841;&#12420;&#12487;&#12540;&#12479;&#12434;&#12356;&#12388;&#12391;&#12418;&#12372;&#30906;&#35469;&#12356;&#12383;&#12384;&#12369;&#12414;&#12377;&#12290;<br>&#12372;&#19981;&#26126;&#12394;&#28857;&#12399;&#12362;&#27671;&#36605;&#12395;&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#12367;&#12384;&#12373;&#12356;&#12290;</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        &#39640;&#26408;&#24037;&#21209;&#24215; HP&#36939;&#29992;&#12524;&#12509;&#12540;&#12488; &#8212; &#26666;&#24335;&#20250;&#31038;&#26007;
+    </footer>
+
+</body>
+</html>

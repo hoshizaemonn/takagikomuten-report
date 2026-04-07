@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高木工務店 施策進捗レポート — 2026年4月</title>
+<style>
+  :root {
+    --primary: #1a2744;
+    --accent: #e8963e;
+    --green: #2ea66a;
+    --green-light: #d4f0e0;
+    --red: #d94452;
+    --red-light: #fde8ea;
+    --blue: #3b7dd8;
+    --blue-light: #dfeafb;
+    --purple: #7c5cbf;
+    --purple-light: #ede8f8;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --gray-50: #f8f9fb;
+    --gray-100: #eef0f4;
+    --gray-200: #dce0e8;
+    --gray-400: #9aa2b1;
+    --gray-600: #5c6478;
+    --gray-800: #2d3344;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 2px 12px rgba(26,39,68,.07);
+    --shadow-lg: 0 8px 32px rgba(26,39,68,.10);
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--gray-50); color: var(--gray-800); line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #2c3e6b 100%);
+    color: #fff; padding: 60px 24px 48px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(46,166,106,.18) 0%, transparent 60%); }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-badge { display: inline-block; background: rgba(46,166,106,.25); border: 1px solid rgba(46,166,106,.4); border-radius: 100px; padding: 6px 20px; font-size: .8rem; letter-spacing: .08em; margin-bottom: 16px; color: #a0f0c0; }
+  .hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 8px; }
+  .hero p { font-size: 1rem; opacity: .8; max-width: 540px; margin: 0 auto; }
+  .hero-date { font-size: .85rem; opacity: .6; margin-top: 8px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 48px 0; }
+  .section-label { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .14em; border-radius: 6px; padding: 4px 12px; margin-bottom: 10px; }
+  .label-green { color: var(--green); background: var(--green-light); }
+  .label-blue { color: var(--blue); background: var(--blue-light); }
+  .label-orange { color: var(--accent); background: rgba(232,150,62,.12); }
+  .label-red { color: var(--red); background: var(--red-light); }
+  .section-title { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+  .section-desc { color: var(--gray-600); font-size: .9rem; margin-bottom: 28px; }
+  .overall-bar-wrap { background: #fff; border-radius: var(--radius-lg); padding: 28px 32px; box-shadow: var(--shadow); border: 1px solid var(--gray-100); margin-bottom: 32px; }
+  .overall-bar-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .overall-bar-label h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+  .overall-bar-label span { font-size: 1.6rem; font-weight: 900; color: var(--green); }
+  .overall-bar { height: 20px; background: var(--gray-100); border-radius: 100px; overflow: hidden; }
+  .overall-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--green), #4bc282); }
+  .phase-bars { display: flex; gap: 8px; margin-top: 16px; }
+  .phase-bar-item { flex: 1; text-align: center; }
+  .phase-mini-bar { height: 6px; background: var(--gray-100); border-radius: 100px; overflow: hidden; margin-bottom: 6px; }
+  .phase-mini-fill { height: 100%; border-radius: 100px; }
+  .phase-bar-item:nth-child(1) .phase-mini-fill { background: var(--green); }
+  .phase-bar-item:nth-child(2) .phase-mini-fill { background: var(--blue); }
+  .phase-bar-item:nth-child(3) .phase-mini-fill { background: var(--accent); }
+  .phase-bar-item:nth-child(4) .phase-mini-fill { background: var(--purple); }
+  .phase-bar-item span { font-size: .7rem; color: var(--gray-400); font-weight: 600; }
+  .done-section { background: linear-gradient(135deg, #f0faf4 0%, #e8f8ee 100%); border: 2px solid var(--green); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 32px; position: relative; }
+  .done-section::before { content: "COMPLETED"; position: absolute; top: -12px; left: 24px; background: var(--green); color: #fff; font-size: .7rem; font-weight: 800; padding: 4px 16px; border-radius: 100px; letter-spacing: .1em; }
+  .done-section h3 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+  .done-item { background: #fff; border-radius: var(--radius); padding: 20px 24px; box-shadow: 0 1px 6px rgba(0,0,0,.04); border-left: 4px solid var(--green); margin-bottom: 12px; }
+  .done-item:last-child { margin-bottom: 0; }
+  .done-item h4 { font-size: .95rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+  .done-item p { font-size: .83rem; color: var(--gray-600); }
+  .done-item-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .detail-tag { font-size: .68rem; padding: 3px 10px; border-radius: 100px; background: var(--green-light); color: #1a7a4a; font-weight: 600; }
+  .action-section { background: linear-gradient(135deg, #fff8ee 0%, #fff3e0 100%); border: 2px solid var(--accent); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 32px; position: relative; }
+  .action-section::before { content: "ACTION NEEDED"; position: absolute; top: -12px; left: 24px; background: var(--accent); color: #fff; font-size: .7rem; font-weight: 800; padding: 4px 16px; border-radius: 100px; letter-spacing: .1em; }
+  .action-section h3 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+  .action-item { background: #fff; border-radius: var(--radius); padding: 20px 24px; box-shadow: 0 1px 6px rgba(0,0,0,.04); border-left: 4px solid var(--accent); margin-bottom: 12px; }
+  .action-item:last-child { margin-bottom: 0; }
+  .action-item h4 { font-size: .95rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+  .action-item p { font-size: .83rem; color: var(--gray-600); }
+  .action-item-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .action-tag { font-size: .68rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,150,62,.12); color: var(--accent); font-weight: 600; }
+  .action-tag-red { font-size: .68rem; padding: 3px 10px; border-radius: 100px; background: var(--red-light); color: var(--red); font-weight: 600; }
+  .article-list { list-style: none; }
+  .article-list li { padding: 10px 0 10px 28px; position: relative; font-size: .85rem; border-bottom: 1px solid var(--gray-100); }
+  .article-list li:last-child { border-bottom: none; }
+  .article-list li::before { content: "\2713"; position: absolute; left: 4px; top: 10px; color: var(--green); font-weight: 800; }
+  .article-date { font-size: .72rem; color: var(--gray-400); margin-right: 8px; }
+  footer { text-align: center; padding: 36px 20px; font-size: .74rem; color: var(--gray-400); }
+  @media(max-width:640px){ section { padding: 32px 0; } .done-section, .action-section { padding: 24px 18px; } .phase-bars { flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">PROGRESS REPORT</div>
+  <h1>&#26045;&#31574;&#36914;&#25431;&#12524;&#12509;&#12540;&#12488;</h1>
+  <p>&#39640;&#26408;&#24037;&#21209;&#24215; HP&#36939;&#29992; &#8212; Phase 1&#23436;&#20102;&#12539;Phase 2&#36914;&#34892;&#20013;&#12539;Phase 3&#38283;&#22987;</p>
+  <div class="hero-date">2026&#24180;4&#26376;7&#26085; &#26356;&#26032;</div>
+</header>
+
+<section>
+  <div class="container">
+    <span class="section-label label-green">OVERALL</span>
+    <h2 class="section-title">&#20840;&#20307;&#36914;&#25431;</h2>
+    <p class="section-desc">HP&#38283;&#35373;&#65288;2025&#24180;12&#26376;&#65289;&#12363;&#12425;&#29694;&#22312;&#12414;&#12391;&#12398;&#26045;&#31574;&#23455;&#26045;&#29366;&#27841;&#12391;&#12377;&#12290;</p>
+    <div class="overall-bar-wrap">
+      <div class="overall-bar-label"><h3>&#12525;&#12540;&#12489;&#12510;&#12483;&#12503;&#20840;&#20307;&#36914;&#25431;</h3><span>45%</span></div>
+      <div class="overall-bar"><div class="overall-bar-fill" style="width:45%;"></div></div>
+      <div class="phase-bars">
+        <div class="phase-bar-item"><div class="phase-mini-bar"><div class="phase-mini-fill" style="width:100%;"></div></div><span>Phase 1: 100%</span></div>
+        <div class="phase-bar-item"><div class="phase-mini-bar"><div class="phase-mini-fill" style="width:60%;"></div></div><span>Phase 2: 60%</span></div>
+        <div class="phase-bar-item"><div class="phase-mini-bar"><div class="phase-mini-fill" style="width:5%;"></div></div><span>Phase 3: 5%</span></div>
+        <div class="phase-bar-item"><div class="phase-mini-bar"><div class="phase-mini-fill" style="width:0%;"></div></div><span>Phase 4: 0%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="done-section">
+      <h3>Phase 1: &#21462;&#12426;&#12371;&#12412;&#12375;&#38450;&#27490;</h3>
+      <div class="done-item"><h4>&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#23566;&#32218;&#12398;&#25913;&#21892;</h4><p>&#38651;&#35441;&#30058;&#21495;&#12504;&#12483;&#12480;&#12540;&#22266;&#23450;&#12289;&#28961;&#26009;&#35211;&#31309;&#12418;&#12426;CTA&#35373;&#32622;&#12289;&#12501;&#12457;&#12540;&#12512;&#31777;&#32032;&#21270;&#12290;</p><div class="done-item-tags"><span class="detail-tag">&#38651;&#35441;&#30058;&#21495;&#12504;&#12483;&#12480;&#12540;</span><span class="detail-tag">CTA&#35373;&#32622;</span><span class="detail-tag">&#12501;&#12457;&#12540;&#12512;&#31777;&#32032;&#21270;</span></div></div>
+      <div class="done-item"><h4>GA4 &#12467;&#12531;&#12496;&#12540;&#12472;&#12519;&#12531;&#35373;&#23450;</h4><p>contact / contact_completed &#12452;&#12505;&#12531;&#12488;&#12434;&#12467;&#12531;&#12496;&#12540;&#12472;&#12519;&#12531;&#12392;&#12375;&#12390;&#35373;&#23450;&#23436;&#20102;&#12290;</p></div>
+      <div class="done-item"><h4>Google&#12499;&#12472;&#12493;&#12473;&#12503;&#12525;&#12501;&#12451;&#12540;&#12523;&#26368;&#36969;&#21270;</h4><p>&#22522;&#26412;&#24773;&#22577;&#12539;&#20889;&#30495;&#12539;&#12469;&#12540;&#12499;&#12473;&#12459;&#12486;&#12468;&#12522;&#12540;&#12398;&#35373;&#23450;&#12434;&#23455;&#26045;&#12290;</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <span class="section-label label-blue">PHASE 2</span>
+    <h2 class="section-title">&#12467;&#12531;&#12486;&#12531;&#12484;&#12398;&#31278;&#12414;&#12365;&#65288;&#36914;&#34892;&#20013;&#65289;</h2>
+    <p class="section-desc">&#12502;&#12525;&#12464;&#35352;&#20107;&#25237;&#31295;&#12539;SEO&#25216;&#34899;&#20462;&#27491;&#12364;&#23436;&#20102;&#12290;&#26045;&#24037;&#20107;&#20363;&#12506;&#12540;&#12472;&#12364;&#27531;&#12479;&#12473;&#12463;&#12391;&#12377;&#12290;</p>
+
+    <div class="done-section">
+      <h3>SEO&#25216;&#34899;&#20462;&#27491;&#65288;3&#26376;23&#26085; &#23436;&#20102;&#65289;</h3>
+      <div class="done-item"><h4>H1&#12479;&#12464;&#31354;&#21839;&#38988; &#8594; &#20462;&#27491;&#23436;&#20102;</h4><p>&#20840;&#12506;&#12540;&#12472;&#12398;H1&#12479;&#12464;&#12364;&#31354;&#12384;&#12387;&#12383;&#21839;&#38988;&#12434;&#20462;&#27491;&#12290;</p></div>
+      <div class="done-item"><h4>meta description &#20840;&#12506;&#12540;&#12472;&#35373;&#23450; &#8594; &#23436;&#20102;</h4><p>AIOSEO&#35373;&#23450;&#12391;&#20840;&#12506;&#12540;&#12472;&#12395;meta description&#12434;&#36861;&#21152;&#12290;</p></div>
+      <div class="done-item"><h4>title&#12479;&#12464;&#26368;&#36969;&#21270; &#8594; &#23436;&#20102;</h4><p>&#22320;&#22495;&#21517;&#12539;&#12469;&#12540;&#12499;&#12473;&#20869;&#23481;&#12434;&#21547;&#12416;&#26368;&#36969;&#12394;title&#12434;&#35373;&#23450;&#12290;</p><div class="done-item-tags"><span class="detail-tag">&#12488;&#12483;&#12503;: &#35299;&#20307;&#24037;&#20107;&#12394;&#12425;&#39641;&#26408;&#24037;&#21209;&#24215;</span><span class="detail-tag">&#20250;&#31038;&#27010;&#35201;</span><span class="detail-tag">&#20107;&#26989;&#20869;&#23481;</span><span class="detail-tag">&#26045;&#24037;&#23455;&#32318;</span><span class="detail-tag">&#25505;&#29992;&#24773;&#22577;</span></div></div>
+      <div class="done-item"><h4>H2&#33521;&#35486;&#12479;&#12464; &#8594; &#26085;&#26412;&#35486;&#12395;&#20462;&#27491;</h4><p>&#33521;&#35486;&#12384;&#12387;&#12383;H2&#12434;&#12377;&#12409;&#12390;&#26085;&#26412;&#35486;&#12395;&#22793;&#26356;&#12290;&#35336;14&#12501;&#12449;&#12452;&#12523;&#20462;&#27491;&#12290;</p></div>
+    </div>
+
+    <div class="done-section">
+      <h3>&#12502;&#12525;&#12464;&#35352;&#20107;&#25237;&#31295;&#65288;10&#26412;&#20316;&#25104;&#28168;&#12415;&#65289;</h3>
+      <ul class="article-list">
+        <li><span class="article-date">2025-12</span> &#35299;&#20307;&#12399;&#12300;&#32066;&#12431;&#12426;&#12301;&#12391;&#12399;&#12394;&#12367;&#26032;&#12375;&#12356;&#12300;&#22987;&#12414;&#12426;&#12301;&#12398;&#12383;&#12417;&#12395;</li>
+        <li><span class="article-date">2026-01</span> &#26032;&#24180;&#12398;&#12372;&#25384;&#25334;&#12392;2026&#24180;&#12398;&#25265;&#36000;</li>
+        <li><span class="article-date">2026-01</span> &#20908;&#12398;&#35299;&#20307;&#24037;&#20107;&#12391;&#27880;&#24847;&#12377;&#12409;&#12365;&#12509;&#12452;&#12531;&#12488;</li>
+        <li><span class="article-date">2026-01</span> &#24180;&#22987;1&#26376;&#12363;&#12425;2&#26376;&#12414;&#12391;&#35299;&#20307;&#24037;&#20107;&#12434;&#22987;&#12417;&#12383;&#12356;&#26041;&#12408;&#65288;&#25505;&#29992;&#65289;</li>
+        <li><span class="article-date">2026-02</span> &#26408;&#36896;&#35299;&#20307;&#12398;&#22522;&#30990;&#30693;&#35672; &#65374;&#21476;&#27665;&#23478;&#12363;&#12425;&#29694;&#20195;&#20303;&#23429;&#12414;&#12391;&#65374;</li>
+        <li><span class="article-date">2026-02</span> &#35299;&#20307;&#24037;&#20107;&#12398;&#35211;&#31309;&#12418;&#12426;&#12434;&#20381;&#38972;&#12377;&#12427;&#21069;&#12395;&#30693;&#12387;&#12390;&#12362;&#12365;&#12383;&#12356;5&#12388;&#12398;&#12509;&#12452;&#12531;&#12488;</li>
+        <li><span class="article-date">2026-02</span> &#39640;&#26408;&#24037;&#21209;&#24215;&#12398;&#20250;&#31038;&#32057;&#20171; &#65374;50&#24180;&#20197;&#19978;&#12398;&#23455;&#32318;&#12392;&#22320;&#22495;&#12408;&#12398;&#24819;&#12356;&#65374;</li>
+        <li><span class="article-date">2026-03</span> &#26149;&#12398;&#24341;&#12387;&#36234;&#12375;&#12471;&#12540;&#12474;&#12531;&#21069;&#12395;&#65281;&#24314;&#29289;&#35299;&#20307;&#12398;&#12479;&#12452;&#12511;&#12531;&#12464;</li>
+        <li><span class="article-date">2026-03</span> &#35299;&#20307;&#24037;&#20107;&#12391;&#20351;&#12360;&#12427;&#35036;&#21161;&#37329;&#21046;&#24230; &#65374;&#21271;&#20061;&#24030;&#24066;&#12539;&#31119;&#23713;&#30476;&#12398;&#26368;&#26032;&#24773;&#22577;&#65374;</li>
+        <li><span class="article-date">2026-04</span> &#35299;&#20307;&#24037;&#20107;&#12398;&#35211;&#31309;&#12418;&#12426;&#12434;&#20381;&#38972;&#12377;&#12427;&#21069;&#12395;&#30693;&#12387;&#12390;&#12362;&#12365;&#12383;&#12356;&#12371;&#12392; <strong style="color:var(--blue);">&#8592; NEW</strong></li>
+      </ul>
+    </div>
+
+    <div class="action-section">
+      <h3>Phase 2 &#27531;&#12479;&#12473;&#12463;</h3>
+      <div class="done-item"><h4>施工実績ページ 3件公開済み</h4><p>木造住宅解体（八幡東区祝町）・木造店舗解体（美容室）・木造店舗兼住宅解体（三萩野）の3件をBefore/After付きで公開。</p><div class="done-item-tags"><span class="detail-tag">3件公開</span><span class="detail-tag">Before/After</span><span class="detail-tag">完了</span></div></div>
+      <div class="done-item"><h4>トップページ title の再改善 ✅ 完了</h4><p>「東京都の木造・RC解体」→「北九州市で55年以上の実績」に変更済み。meta descriptionも「東京都」→「北九州市」、「50年以上」→「55年以上」に修正完了。</p><div class="done-item-tags"><span class="detail-tag">完了</span><span class="detail-tag">CTR改善</span><span class="detail-tag">4/7実施</span></div></div>
+      <div class="action-item"><h4>&#35352;&#20107;&#12434;15&#26412;&#12414;&#12391;&#31309;&#12415;&#19978;&#12370;</h4><p>&#29694;&#22312;10&#26412;&#12289;&#30446;&#27161;15&#26412;&#12290;&#26376;2&#22238;&#12506;&#12540;&#12473;&#12391;&#32153;&#32154;&#25237;&#31295;&#20013;&#12290;</p><div class="action-item-tags"><span class="action-tag">10/15&#26412;</span><span class="action-tag">&#26376;2&#22238;</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <span class="section-label label-orange">PHASE 3</span>
+    <h2 class="section-title">採用を取りにいく（開始）</h2>
+    <p class="section-desc">社長の意向を受け、採用施策を段階的に進めています。まずはすぐ始められる施策から着手します。</p>
+
+    <!-- すぐできる施策 -->
+    <div style="background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:2px solid var(--blue);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:32px;position:relative;">
+      <div style="position:absolute;top:-12px;left:24px;background:var(--blue);color:#fff;font-size:.7rem;font-weight:800;padding:4px 16px;border-radius:100px;letter-spacing:.1em;">すぐ着手できる施策</div>
+      <h3 style="font-size:1.05rem;font-weight:800;color:var(--primary);margin-bottom:16px;">まずはここから — すぐ始められる施策</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+        <div style="background:#fff;border-radius:var(--radius);padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.04);border-top:3px solid var(--green);">
+          <div style="font-size:.82rem;font-weight:700;color:var(--primary);margin-bottom:4px;">① 採用記事の投稿</div>
+          <div style="font-size:.72rem;color:var(--gray-600);">記事作成済み（4/20公開予定）</div>
+          <span style="display:inline-block;margin-top:6px;font-size:.62rem;padding:2px 8px;border-radius:100px;background:var(--green-light);color:var(--green);font-weight:700;">記事作成済み</span>
+        </div>
+        <div style="background:#fff;border-radius:var(--radius);padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.04);border-top:3px solid var(--green);">
+          <div style="font-size:.82rem;font-weight:700;color:var(--primary);margin-bottom:4px;">② フッターに採用リンク</div>
+          <div style="font-size:.72rem;color:var(--gray-600);">全ページに小さなリンクを設置</div>
+          <span style="display:inline-block;margin-top:6px;font-size:.62rem;padding:2px 8px;border-radius:100px;background:var(--blue-light);color:var(--blue);font-weight:700;">即日対応可</span>
+        </div>
+        <div style="background:#fff;border-radius:var(--radius);padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.04);border-top:3px solid var(--green);">
+          <div style="font-size:.82rem;font-weight:700;color:var(--primary);margin-bottom:4px;">③ Googleしごと検索</div>
+          <div style="font-size:.72rem;color:var(--gray-600);">JSON-LD構造化データを埋め込み</div>
+          <span style="display:inline-block;margin-top:6px;font-size:.62rem;padding:2px 8px;border-radius:100px;background:var(--blue-light);color:var(--blue);font-weight:700;">WP設定のみ</span>
+        </div>
+        <div style="background:#fff;border-radius:var(--radius);padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.04);border-top:3px solid var(--green);">
+          <div style="font-size:.82rem;font-weight:700;color:var(--primary);margin-bottom:4px;">④ Indeed掲載</div>
+          <div style="font-size:.72rem;color:var(--gray-600);">採用記事の原稿をそのまま活用</div>
+          <span style="display:inline-block;margin-top:6px;font-size:.62rem;padding:2px 8px;border-radius:100px;background:var(--blue-light);color:var(--blue);font-weight:700;">原稿素材あり</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10施策ロードマップ -->
+    <div style="background:#fff;border-radius:var(--radius-lg);padding:28px 32px;box-shadow:var(--shadow);border:1px solid var(--gray-100);margin-bottom:32px;">
+      <h3 style="font-size:1.05rem;font-weight:800;color:var(--primary);margin-bottom:6px;">採用施策ロードマップ（全10施策）</h3>
+      <p style="font-size:.78rem;color:var(--gray-400);margin-bottom:20px;">フェーズ別に段階的に実施。まずは A → B → C → D の順に進めます。</p>
+
+      <!-- Phase A -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.72rem;font-weight:800;color:var(--green);letter-spacing:.08em;margin-bottom:10px;">PHASE A — 自社サイト改修（すぐ着手・低コスト）</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--green);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--green);min-width:20px;">1</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">フッターに採用リンク設置</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--green-light);color:var(--green);font-weight:700;white-space:nowrap;">すぐ着手可</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--blue);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--blue);min-width:20px;">2</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">施工事例に「現場の工夫」エピソード</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--blue-light);color:var(--blue);font-weight:700;white-space:nowrap;">一部対応済（3件公開）</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--gray-200);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--gray-400);min-width:20px;">3</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">「スタッフ紹介」ページの新設</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--gray-100);color:var(--gray-600);font-weight:700;white-space:nowrap;">未着手（撮影必要）</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--green);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--green);min-width:20px;">4</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">Googleしごと検索（JSON-LD）対応</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--green-light);color:var(--green);font-weight:700;white-space:nowrap;">すぐ着手可</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase B -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.72rem;font-weight:800;color:var(--blue);letter-spacing:.08em;margin-bottom:10px;">PHASE B — 採用専用ページ・サイト制作</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--blue);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--blue);min-width:20px;">5</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">採用専用ランディングページ</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--blue-light);color:var(--blue);font-weight:700;white-space:nowrap;">計画中（/recruit/既存）</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--green);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--green);min-width:20px;">6</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">無料採用サイトツール（engage等）</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--green-light);color:var(--green);font-weight:700;white-space:nowrap;">すぐ着手可</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase C -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.72rem;font-weight:800;color:var(--accent);letter-spacing:.08em;margin-bottom:10px;">PHASE C — 解体業特化の有料求人媒体</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--gray-200);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--gray-400);min-width:20px;">7</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">助太刀（建設・解体業特化アプリ）</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--gray-100);color:var(--gray-600);font-weight:700;white-space:nowrap;">未着手</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--gray-200);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--gray-400);min-width:20px;">8</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">Indeed有料広告 / POWER WORK</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--gray-100);color:var(--gray-600);font-weight:700;white-space:nowrap;">未着手</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase D -->
+      <div>
+        <div style="font-size:.72rem;font-weight:800;color:var(--purple);letter-spacing:.08em;margin-bottom:10px;">PHASE D — SNS・動画での採用広報</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--gray-200);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--gray-400);min-width:20px;">9</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">Instagramで解体現場の日常を発信</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--gray-100);color:var(--gray-600);font-weight:700;white-space:nowrap;">未着手</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--gray-200);">
+            <span style="font-size:.72rem;font-weight:800;color:var(--gray-400);min-width:20px;">10</span>
+            <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;">TikTok / YouTube 短尺動画</span>
+            <span style="font-size:.6rem;padding:2px 8px;border-radius:100px;background:var(--gray-100);color:var(--gray-600);font-weight:700;white-space:nowrap;">未着手</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:.78rem;color:var(--gray-400);text-align:center;">※ 各施策の詳細は別途「人材採用施策ご提案」資料をご参照ください</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <span class="section-label" style="color:var(--purple);background:var(--purple-light);">PHASE 4</span>
+    <h2 class="section-title">継続して積み上げる（未着手）</h2>
+    <p class="section-desc">Phase 1〜3の施策を定着させ、データに基づいた改善サイクルを回していくフェーズです。</p>
+
+    <div style="background:#fff;border-radius:var(--radius-lg);padding:28px 32px;box-shadow:var(--shadow);border:1px solid var(--gray-200);margin-bottom:32px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--purple);">
+          <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;"><strong>月次レポート定例化</strong><br><span style="font-size:.72rem;color:var(--gray-600);">GA4・Search Console・問い合わせ数を毎月レポートし、次月の施策に反映</span></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--purple);">
+          <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;"><strong>ブログ記事20本到達 → 長尾キーワード分析</strong><br><span style="font-size:.72rem;color:var(--gray-600);">記事が増えた段階でSearch Consoleデータを分析し、狙うキーワードを精査</span></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--purple);">
+          <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;"><strong>リスティング広告の検討</strong><br><span style="font-size:.72rem;color:var(--gray-600);">自然検索の基盤ができた段階で、費用対効果の高い広告出稿を検討</span></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--purple);">
+          <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;"><strong>Googleビジネスプロフィール口コミ獲得</strong><br><span style="font-size:.72rem;color:var(--gray-600);">施工完了後にお客様へレビュー依頼。地域検索での信頼性を向上</span></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-50);border-radius:8px;border-left:3px solid var(--purple);">
+          <span style="font-size:.82rem;font-weight:600;color:var(--primary);flex:1;"><strong>採用効果の測定と改善</strong><br><span style="font-size:.72rem;color:var(--gray-600);">応募数・面接率・採用率をトラッキングし、効果の高い媒体に集中投資</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <span class="section-label label-green">RESULTS</span>
+    <h2 class="section-title">&#25104;&#26524;&#12539;&#12510;&#12452;&#12523;&#12473;&#12488;&#12540;&#12531;</h2>
+    <div class="done-section" style="border-color:#f4b400;background:linear-gradient(135deg,rgba(244,180,0,.08) 0%,rgba(232,150,62,.08) 100%);">
+      <h3 style="color:#b8860b;">&#36948;&#25104;&#12375;&#12383;&#12510;&#12452;&#12523;&#12473;&#12488;&#12540;&#12531;</h3>
+      <div class="done-item" style="border-left-color:#f4b400;"><h4>&#21021;&#12398;&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#36948;&#25104;</h4><p>1&#21517;&#12398;&#12362;&#23458;&#27096;&#12363;&#12425;3&#22238;&#36865;&#20449;&#12290;CTA&#23566;&#32218;&#12364;&#27231;&#33021;&#38283;&#22987;&#12290;</p></div>
+      <div class="done-item" style="border-left-color:#f4b400;"><h4>&#26908;&#32034;&#12463;&#12522;&#12483;&#12463;&#25968; +1,000%</h4><p>&#21069;&#22238;1 &#8594; &#20170;&#22238;11&#12290;&#12300;&#39640;&#26408;&#24037;&#21209;&#24215;&#12301;&#12391;4&#12463;&#12522;&#12483;&#12463;&#29554;&#24471;&#12290;</p></div>
+      <div class="done-item" style="border-left-color:#f4b400;"><h4>&#12300;&#24037;&#21209;&#24215; &#21271;&#20061;&#24030;&#12301;&#12391;&#26908;&#32034;1&#20301;&#32173;&#25345;</h4><p>&#24179;&#22343;&#25522;&#36617;&#38918;&#20301;1.3&#20301;&#12290;title&#25913;&#21892;&#12391;&#12463;&#12522;&#12483;&#12463;&#29554;&#24471;&#12364;&#35211;&#36796;&#12417;&#12414;&#12377;&#12290;</p></div>
+      <div class="done-item" style="border-left-color:#f4b400;"><h4>&#12502;&#12525;&#12464;&#35352;&#20107;&#12364;&#26908;&#32034;&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12395;&#30331;&#37682;</h4><p>&#26408;&#36896;&#35299;&#20307;&#35352;&#20107;&#12364;47&#22238;&#34920;&#31034;&#65288;&#38918;&#20301;12.8&#20301;&#65289;&#12290;&#12467;&#12531;&#12486;&#12531;&#12484;SEO&#12398;&#21177;&#26524;&#12364;&#20986;&#22987;&#12290;</p></div>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;padding:32px 20px 0;">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:var(--primary);color:#fff;text-decoration:none;border-radius:100px;font-size:.82rem;font-weight:700;box-shadow:0 2px 8px rgba(26,39,68,.15);transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+    <span style="font-size:1rem;">&larr;</span> レポート一覧に戻る
+  </a>
+</div>
+
+<footer>
+  &#39640;&#26408;&#24037;&#21209;&#24215; &#26045;&#31574;&#36914;&#25431;&#12524;&#12509;&#12540;&#12488; &#8212; &#26666;&#24335;&#20250;&#31038;&#26007; &#20316;&#25104;<br>2026&#24180;4&#26376;7&#26085;&#26356;&#26032;
+</footer>
+
+</body>
+</html>

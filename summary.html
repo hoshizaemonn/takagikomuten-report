@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高木工務店 HP運用レポート — 2026年4月</title>
+<style>
+  :root {
+    --primary: #1a2744;
+    --accent: #e8963e;
+    --green: #2ea66a;
+    --green-light: #d4f0e0;
+    --blue: #3b7dd8;
+    --blue-light: #dfeafb;
+    --red: #d94452;
+    --red-light: #fde8ea;
+    --purple: #7c5cbf;
+    --purple-light: #ede8f8;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --gray-50: #f8f9fb;
+    --gray-100: #eef0f4;
+    --gray-200: #dce0e8;
+    --gray-400: #9aa2b1;
+    --gray-600: #5c6478;
+    --gray-800: #2d3344;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(26,39,68,.07);
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+    background: #fff; color: var(--gray-800);
+    line-height: 1.7; -webkit-font-smoothing: antialiased;
+    max-width: 800px; margin: 0 auto; padding: 0;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, #2c3e6b 100%);
+    color: #fff; padding: 36px 32px 28px; text-align: center;
+  }
+  .header h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }
+  .header p { font-size: .85rem; opacity: .7; }
+
+  /* SECTION */
+  .section { padding: 28px 32px; border-bottom: 1px solid var(--gray-100); }
+  .section:last-child { border-bottom: none; }
+  .section-num {
+    display: inline-block; font-size: .65rem; font-weight: 800;
+    letter-spacing: .1em; border-radius: 4px; padding: 2px 10px; margin-bottom: 8px;
+  }
+  .num-blue { background: var(--blue-light); color: var(--blue); }
+  .num-green { background: var(--green-light); color: var(--green); }
+  .num-orange { background: rgba(232,150,62,.12); color: var(--accent); }
+  .num-red { background: var(--red-light); color: var(--red); }
+  .num-purple { background: var(--purple-light); color: var(--purple); }
+  .num-teal { background: var(--teal-light); color: var(--teal); }
+  .section h2 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+
+  /* KPI ROW */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .kpi { background: var(--gray-50); border-radius: var(--radius); padding: 16px 14px; text-align: center; }
+  .kpi-val { font-size: 1.6rem; font-weight: 900; line-height: 1.1; }
+  .kpi-label { font-size: .72rem; color: var(--gray-600); font-weight: 600; margin-top: 4px; }
+  .kpi-note { font-size: .65rem; color: var(--gray-400); margin-top: 2px; }
+  .v-blue { color: var(--blue); }
+  .v-green { color: var(--green); }
+  .v-orange { color: var(--accent); }
+  .v-red { color: var(--red); }
+  .v-teal { color: var(--teal); }
+  .v-purple { color: var(--purple); }
+
+  /* DONE LIST */
+  .done-list { list-style: none; }
+  .done-list li {
+    padding: 8px 0 8px 24px; position: relative;
+    font-size: .9rem; border-bottom: 1px solid var(--gray-100);
+  }
+  .done-list li:last-child { border-bottom: none; }
+  .done-list li::before {
+    content: "\2713"; position: absolute; left: 0; top: 8px;
+    color: var(--green); font-weight: 800; font-size: .9rem;
+  }
+
+  /* ISSUE BOX */
+  .issue-box {
+    background: var(--red-light); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .issue-box h3 { font-size: .95rem; color: var(--red); margin-bottom: 6px; }
+  .issue-box p { font-size: .85rem; color: var(--gray-800); }
+
+  /* SUCCESS BOX */
+  .success-box {
+    background: var(--green-light); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .success-box h3 { font-size: .95rem; color: var(--green); margin-bottom: 6px; }
+  .success-box p { font-size: .85rem; color: var(--gray-800); }
+
+  /* ACTION BOX */
+  .action-box {
+    background: var(--blue-light); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .action-box h3 { font-size: .95rem; color: var(--blue); margin-bottom: 8px; }
+  .action-list { list-style: none; }
+  .action-list li {
+    padding: 6px 0 6px 20px; position: relative;
+    font-size: .85rem;
+  }
+  .action-list li::before {
+    content: "\2192"; position: absolute; left: 0; top: 6px;
+    color: var(--blue); font-weight: 700;
+  }
+  .action-list li strong { color: var(--primary); }
+
+  /* TABLE */
+  .tbl-wrap { border-radius: var(--radius); overflow-x: auto; margin: 16px 0; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  .tbl th { background: var(--primary); color: #fff; text-align: left; padding: 10px 14px; font-weight: 700; font-size: .74rem; white-space: nowrap; }
+  .tbl td { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); color: var(--gray-600); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .num { font-weight: 800; color: var(--primary); }
+  .up { color: var(--green); font-weight: 700; font-size: .75rem; }
+  .tag { display: inline-block; font-size: .6rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+  .tag-blue { background: var(--blue-light); color: var(--blue); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-orange { background: rgba(232,150,62,.12); color: var(--accent); }
+  .tag-red { background: var(--red-light); color: var(--red); }
+  .tag-teal { background: var(--teal-light); color: var(--teal); }
+
+  /* PHASE BAR */
+  .phase-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--gray-100); font-size: .85rem; }
+  .phase-row:last-child { border-bottom: none; }
+  .phase-bar { flex: 1; height: 8px; background: var(--gray-100); border-radius: 100px; overflow: hidden; }
+  .phase-fill { height: 100%; border-radius: 100px; }
+  .phase-label { width: 180px; font-weight: 700; color: var(--primary); font-size: .8rem; flex-shrink: 0; }
+  .phase-status { width: 60px; font-size: .7rem; font-weight: 700; text-align: right; flex-shrink: 0; }
+
+  /* FOOTER */
+  .footer { text-align: center; padding: 20px; font-size: .72rem; color: var(--gray-400); }
+
+  @media (max-width: 600px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 24px 20px; }
+    .header { padding: 28px 20px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>高木工務店 HP運用レポート</h1>
+  <p>2026年4月7日 更新 — データ期間: 3/8〜4/6（GA4 30日間 / GSC 28日間）</p>
+</div>
+
+<!-- 1. 現状の数字 -->
+<div class="section">
+  <span class="section-num num-blue">現状の数字</span>
+  <h2>直近30日間のアクセス状況</h2>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-val v-blue">90</div>
+      <div class="kpi-label">ページ閲覧数</div>
+      <div class="kpi-note">前回37 → +143%増</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val v-green">11</div>
+      <div class="kpi-label">検索クリック</div>
+      <div class="kpi-note">前回1 → 大幅増</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val v-orange">10本</div>
+      <div class="kpi-label">作成記事数</div>
+      <div class="kpi-note">目標15本（年間24本）</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val v-teal">1件</div>
+      <div class="kpi-label">問い合わせ</div>
+      <div class="kpi-note">同一人物から3回送信</div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;">
+    <div class="kpi-row" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="kpi">
+        <div class="kpi-val v-purple">383</div>
+        <div class="kpi-label">検索表示回数</div>
+        <div class="kpi-note">19キーワード</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val v-blue">52</div>
+        <div class="kpi-label">セッション数</div>
+        <div class="kpi-note">Organic 23 / Direct 26</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val v-green">2.9%</div>
+        <div class="kpi-label">平均CTR</div>
+        <div class="kpi-note">平均掲載順位 8.0位</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="success-box" style="margin-top:18px;">
+    <h3>初のお問い合わせ達成</h3>
+    <p>フォーム送信完了ページ（/contact/contact-completed/）に到達あり。1名のお客様が3回お問い合わせを送信されました。Phase 1で設置したCTA導線が機能し始めています。</p>
+  </div>
+</div>
+
+<!-- 2. やったこと -->
+<div class="section">
+  <span class="section-num num-green">やったこと</span>
+  <h2>3月〜4月前半の実施内容</h2>
+  <ul class="done-list">
+    <li>ブログ記事を7本 → 10本に増加（春の解体タイミング・補助金制度・見積もり記事を追加）</li>
+    <li>施工実績ページを3件公開（木造住宅・美容室店舗・店舗兼住宅、Before/After付き）</li>
+    <li>SEO技術修正完了（H1タグ修正・meta description全ページ設定・titleタグ最適化・H2英語→日本語・アーカイブSEO対応）＝計14ファイル + AIOSEO設定</li>
+    <li>検索クリック数が1→11に大幅増加（「高木工務店」で4クリック獲得）</li>
+    <li>検索表示キーワードが11→19に増加（「解体工事」「補助金」系の新キーワードも出現）</li>
+    <li>「工務店 北九州」で平均掲載順位1.3位を維持</li>
+    <li>Organic Search（自然検索）がセッションの44%を占め、エンゲージメント率65%・平均滞在21秒と高品質</li>
+    <li>木造解体記事が検索で47回表示（掲載順位12.8位）— Googleにインデックスされ始めた</li>
+    <li>お問い合わせフォームからの初コンバージョン（1名・3回送信）</li>
+  </ul>
+</div>
+
+<!-- 3. 検索パフォーマンス詳細 -->
+<div class="section">
+  <span class="section-num num-teal">検索データ</span>
+  <h2>検索キーワード TOP10</h2>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr><th>キーワード</th><th>クリック</th><th>表示</th><th>CTR</th><th>順位</th><th>分類</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>高木工務店</strong></td><td class="num">4</td><td>73</td><td class="up">5.5%</td><td>5.4</td><td><span class="tag tag-blue">指名</span></td></tr>
+        <tr><td>北九州 工務店</td><td class="num">0</td><td>56</td><td>0%</td><td>2.8</td><td><span class="tag tag-green">地域</span></td></tr>
+        <tr><td>髙木工務店</td><td class="num">0</td><td>39</td><td>0%</td><td>2.8</td><td><span class="tag tag-blue">指名</span></td></tr>
+        <tr><td>工務店 北九州</td><td class="num">0</td><td>28</td><td>0%</td><td>1.3</td><td><span class="tag tag-green">地域</span></td></tr>
+        <tr><td>木造解体.解体工事</td><td class="num">0</td><td>17</td><td>0%</td><td>22.9</td><td><span class="tag tag-orange">サービス</span></td></tr>
+        <tr><td>高木工務店 福岡</td><td class="num">0</td><td>12</td><td>0%</td><td>5.4</td><td><span class="tag tag-blue">指名</span></td></tr>
+        <tr><td>東京 解体工事 木造</td><td class="num">0</td><td>6</td><td>0%</td><td>66.0</td><td><span class="tag tag-red">圏外</span></td></tr>
+        <tr><td>東京 解体工事 木造 対応</td><td class="num">0</td><td>6</td><td>0%</td><td>69.0</td><td><span class="tag tag-red">圏外</span></td></tr>
+        <tr><td>株式会社高木工務店</td><td class="num">0</td><td>3</td><td>0%</td><td>4.7</td><td><span class="tag tag-blue">指名</span></td></tr>
+        <tr><td>北九州市 工務店</td><td class="num">0</td><td>3</td><td>0%</td><td>9.3</td><td><span class="tag tag-green">地域</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="margin-top:20px;">ページ別アクセス TOP10（GA4）</h2>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr><th>ページ</th><th>PV</th><th>ユーザー</th><th>割合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>/ <span class="tag tag-blue">トップ</span></td><td class="num">42</td><td>37</td><td>46.7%</td></tr>
+        <tr><td>/about/ <span class="tag tag-green">会社概要</span></td><td class="num">12</td><td>9</td><td>13.3%</td></tr>
+        <tr><td>/contact/ <span class="tag tag-orange">お問い合わせ</span></td><td class="num">8</td><td>7</td><td>8.9%</td></tr>
+        <tr><td>/works/ <span class="tag tag-teal">施工実績</span></td><td class="num">6</td><td>5</td><td>6.7%</td></tr>
+        <tr><td>/contact/contact-completed/ <span class="tag tag-red">送信完了</span></td><td class="num">3</td><td>2</td><td>3.3%</td></tr>
+        <tr><td>/takagi-construction-company-introduction/</td><td class="num">3</td><td>3</td><td>3.3%</td></tr>
+        <tr><td>/blog/ <span class="tag tag-blue">ブログ一覧</span></td><td class="num">2</td><td>1</td><td>2.2%</td></tr>
+        <tr><td>/blog/mokuzou-kaitai-kiso-... <span class="tag tag-green">木造解体</span></td><td class="num">2</td><td>2</td><td>2.2%</td></tr>
+        <tr><td>/demolition-subsidy-... <span class="tag tag-orange">補助金</span></td><td class="num">2</td><td>2</td><td>2.2%</td></tr>
+        <tr><td>/service/ <span class="tag tag-teal">サービス</span></td><td class="num">2</td><td>-</td><td>2.2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 4. 課題 -->
+<div class="section">
+  <span class="section-num num-red">課題</span>
+  <h2>今の問題点</h2>
+  <div class="issue-box">
+    <h3>「北九州 工務店」掲載順位2.8位なのにクリック0</h3>
+    <p>「北九州 工務店」「工務店 北九州」合計84回表示、平均1〜3位表示にもかかわらずクリックがゼロです。検索結果に表示されるtitleとmeta descriptionが、ユーザーの興味を引けていない可能性が高いです。「解体工事専門・55年以上の実績」など差別化ポイントを訴求する必要があります。</p>
+  </div>
+  <div class="success-box">
+    <h3>施工実績ページ 3件公開済み</h3>
+    <p>木造住宅解体（八幡東区祝町）・木造店舗解体（美容室）・木造店舗兼住宅解体（三萩野）の3件をBefore/After付きで公開。うち八幡東区祝町の事例はGSCでも1回表示されています。</p>
+  </div>
+  <div class="issue-box">
+    <h3>Phase 3（採用）が未着手のまま</h3>
+    <p>社長が力を入れたいとされている採用施策がまだ開始されていません。Indeed無料掲載、採用ページ強化、SNS発信など、提案済みの施策の実行に移る必要があります。4月第3週の採用記事「未経験から始める解体工事」の作成も控えています。</p>
+  </div>
+</div>
+
+<!-- 5. これからやること -->
+<div class="section">
+  <span class="section-num num-orange">これからやること</span>
+  <h2>今後の施策</h2>
+
+  <div class="action-box">
+    <h3>最優先：title・meta descriptionの再改善</h3>
+    <ul class="action-list">
+      <li><strong>トップページのtitleを改善</strong> — 現在「解体工事なら有限会社髙木工務店｜東京都の木造・RC解体」→「北九州の解体工事なら髙木工務店｜55年以上の実績・木造からRC解体まで」など、地域名と実績を前面に出す</li>
+      <li><strong>meta descriptionの見直し</strong> — 検索結果でクリックしたくなる具体的な訴求文に変更</li>
+    </ul>
+  </div>
+
+  <div class="action-box" style="background:var(--green-light);">
+    <h3 style="color:var(--green);">Phase 3着手：採用施策の開始</h3>
+    <ul class="action-list">
+      <li style="color:var(--gray-800);"><strong>4月第3週の採用記事を作成</strong> — 「未経験から始める解体工事～学歴不問・経験不問で働ける環境～」</li>
+      <li style="color:var(--gray-800);"><strong>Indeed無料掲載の準備</strong> — 求人原稿（仕事内容・1日の流れ・写真付き）を作成</li>
+      <li style="color:var(--gray-800);"><strong>採用ページコンテンツ強化</strong> — 既存の/recruit/ページに社員の声・働く環境の情報を追加</li>
+    </ul>
+  </div>
+
+  <div class="action-box" style="background:rgba(232,150,62,.08);">
+    <h3 style="color:var(--accent);">継続：コンテンツ積み上げ</h3>
+    <ul class="action-list">
+      <li style="color:var(--gray-800);"><strong>施工事例ページの作成着手</strong> — 準備済みの写真を使い、3件以上のBefore/After＋費用目安ページを作成</li>
+      <li style="color:var(--gray-800);"><strong>木造解体記事のSEO強化</strong> — 47回表示・順位12.8位の記事に内部リンク追加・コンテンツ拡充で10位以内を目指す</li>
+      <li style="color:var(--gray-800);"><strong>記事の定期投稿を継続</strong> — 月2回ペースを維持（年間24本目標）</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6. ロードマップ進捗 -->
+<div class="section">
+  <span class="section-num num-purple">ロードマップ</span>
+  <h2>全体の進捗状況</h2>
+
+  <div class="phase-row">
+    <span class="phase-label">Phase 1: 取りこぼし防止</span>
+    <div class="phase-bar"><div class="phase-fill" style="width:100%;background:var(--green);"></div></div>
+    <span class="phase-status" style="color:var(--green);">完了</span>
+  </div>
+  <div class="phase-row">
+    <span class="phase-label">Phase 2: コンテンツの種まき</span>
+    <div class="phase-bar"><div class="phase-fill" style="width:60%;background:var(--blue);"></div></div>
+    <span class="phase-status" style="color:var(--blue);">60%</span>
+  </div>
+  <div class="phase-row">
+    <span class="phase-label">Phase 3: 採用を取りにいく</span>
+    <div class="phase-bar"><div class="phase-fill" style="width:5%;background:var(--accent);"></div></div>
+    <span class="phase-status" style="color:var(--accent);">5%</span>
+  </div>
+  <div class="phase-row">
+    <span class="phase-label">Phase 4: 継続して積み上げる</span>
+    <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--gray-400);"></div></div>
+    <span class="phase-status" style="color:var(--gray-400);">未着手</span>
+  </div>
+
+  <div style="margin-top:16px; font-size:.8rem; color:var(--gray-600); background:var(--gray-50); border-radius:var(--radius); padding:14px 18px;">
+    <strong>Phase 2 残タスク:</strong> 施工事例ページ作成（3件〜）、記事を15本まで積み上げ<br>
+    <strong>Phase 3 計画:</strong> 採用記事投稿、Indeed無料掲載、採用ページ強化、SNS発信（Instagram/TikTok）
+  </div>
+</div>
+
+<div class="footer">
+  高木工務店 HP運用レポート — 株式会社斗 作成<br>
+  データソース: GA4（3/8〜4/6・30日間）/ Search Console（3/8〜4/4・28日間）
+</div>
+
+</body>
+</html>
