@@ -216,208 +216,246 @@
 </head>
 <body>
 <header class="hero">
-  <div class="hero-badge">DATA ANALYTICS REPORT — 2026年5月1日更新</div>
+  <div class="hero-badge">DATA ANALYTICS REPORT — 2026年5月3日更新</div>
   <h1>GA4 × サーチコンソール 分析レポート</h1>
-  <p>高木工務店 — 2026年4月の全データ</p>
-  <div class="hero-period">集計期間：2026年4月1日 〜 4月30日（1ヶ月）</div>
+  <p>高木工務店 — 2026年4月の月次アクセス分析</p>
+  <div class="hero-period">集計期間: 2026年4月1日 〜 4月30日（30日間）</div>
 </header>
 
+<!-- 1. KPI -->
 <section>
   <div class="container">
     <span class="section-label label-blue">Overview</span>
     <h2 class="section-title">現状サマリー</h2>
-    <p class="section-desc">2026年4月（1ヶ月間）の主要指標です。</p>
+    <p class="section-desc">4月1ヶ月間の主要指標です。指名検索が大半を占め、一般キーワードでのクリック獲得が引き続き課題です。</p>
 
     <div class="kpi-grid">
       <div class="kpi-card kc-blue">
         <div class="kpi-icon">📄</div>
         <div class="kpi-value">77</div>
         <div class="kpi-label">ページビュー数</div>
-        <div class="kpi-sub">2026年4月（1ヶ月）</div>
-        <div class="kpi-trend trend-flat">・ 月次集計</div>
+        <div class="kpi-sub">4/1〜4/30（30日間）</div>
+        <div class="kpi-trend trend-flat">▪ 月次累積</div>
       </div>
       <div class="kpi-card kc-green">
         <div class="kpi-icon">🔍</div>
         <div class="kpi-value">9</div>
         <div class="kpi-label">検索クリック数</div>
-        <div class="kpi-sub">指名検索8件＋旧字体1件</div>
-        <div class="kpi-trend trend-warn">▼ 一般KWクリック0件</div>
+        <div class="kpi-sub">指名検索8回・旧字体1回</div>
+        <div class="kpi-trend trend-up">↑ 指名検索が安定</div>
       </div>
       <div class="kpi-card kc-teal">
         <div class="kpi-icon">📊</div>
-        <div class="kpi-value">14</div>
-        <div class="kpi-label">アクセスのあったページ数</div>
-        <div class="kpi-sub">トップ偏重（36/77 PV）</div>
-        <div class="kpi-trend trend-flat">・ 47%がトップ</div>
+        <div class="kpi-value">20語</div>
+        <div class="kpi-label">表示キーワード</div>
+        <div class="kpi-sub">うちクリック0は18語</div>
+        <div class="kpi-trend trend-warn">▼ CTR改善が急務</div>
       </div>
       <div class="kpi-card kc-orange">
+        <div class="kpi-icon">📝</div>
+        <div class="kpi-value">14</div>
+        <div class="kpi-label">アクセスありページ</div>
+        <div class="kpi-sub">トップ・会社概要に集中</div>
+        <div class="kpi-trend trend-flat">▪ 記事系流入弱い</div>
+      </div>
+      <div class="kpi-card kc-red">
         <div class="kpi-icon">📞</div>
         <div class="kpi-value">1件</div>
         <div class="kpi-label">お問い合わせ完了</div>
-        <div class="kpi-sub">※質の評価はサマリー参照</div>
-        <div class="kpi-trend trend-up">↑ 初コンバージョン継続</div>
-      </div>
-      <div class="kpi-card kc-red">
-        <div class="kpi-icon">👤</div>
-        <div class="kpi-value">0件</div>
-        <div class="kpi-label">採用エントリー</div>
-        <div class="kpi-sub">/recruit/ 4 PV → 0応募</div>
-        <div class="kpi-trend trend-down">▼ 導線改善が必要</div>
-      </div>
-    </div>
-
-    <div class="alert alert-warn">
-      <div class="alert-icon">⚠️</div>
-      <div class="alert-body">
-        <h4>【最重要課題】指名検索が9件中8件（88.9%）。一般エリアKWからのクリックは0件継続</h4>
-        <p>「高木工務店」8クリック・「髙木工務店」（旧字体）1クリック。一方で「工務店 北九州」「北九州市 工務店」「工務店 小倉北区」「工務店 福岡県」など、エリアキーワードはすべてクリック0件のままです。<strong>表示はされているが選ばれていない</strong>状態であり、新規顧客獲得につながっていません。</p>
+        <div class="kpi-sub">採用エントリーは 0件</div>
+        <div class="kpi-trend trend-up">↑ 初コンバージョン</div>
       </div>
     </div>
 
     <div class="alert alert-success">
       <div class="alert-icon">✅</div>
       <div class="alert-body">
-        <h4>【良い兆し】お問い合わせ完了1件を継続獲得</h4>
-        <p>3月に続き4月もお問い合わせ完了を1件獲得。/contact/ ページへのアクセスは4 PVあり、訪問者の一定割合がコンバージョンに到達しています。</p>
+        <h4>お問い合わせフォームから1件の完了を獲得（初コンバージョン）</h4>
+        <p>4月の /contact/ ページは4PV、フォーム完了が1件記録されました。サイト改修後の初コンバージョンであり、フォーム自体は機能していることが確認できました。ただし内容が解体工事の見積依頼（本命案件）かどうかは別途確認が必要です。詳細は summary.html の問い合わせ品質評価をご確認ください。</p>
+      </div>
+    </div>
+
+    <div class="alert alert-warn">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <h4>エリア系キーワードは表示されているがクリックが取れていません</h4>
+        <p>「工務店 北九州」「北九州市 工務店」「工務店 小倉北区」「工務店 福岡県」など、解体工事の受注につながる可能性のあるエリア系キーワードはいずれも <strong>クリック0回</strong> です。指名検索（高木工務店・髙木工務店）で9回中9回をまかなっており、新規顧客の獲得導線としては機能していません。</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 2. PAGE ACCESS -->
 <section style="padding-top:0;">
   <div class="container">
     <span class="section-label label-orange">Page Analysis</span>
-    <h2 class="section-title">ページ別アクセス状況（2026年4月）</h2>
-    <p class="section-desc">全14ページ・合計77 PV。トップページに集中する構造が続いています。</p>
+    <h2 class="section-title">ページ別アクセス状況（4月）</h2>
+    <p class="section-desc">どのページが見られているかを確認します。トップと会社概要で全体の66%を占めています。</p>
 
     <div class="chart-card">
-      <h3>📊 ページ別PVランキング</h3>
-      <p class="chart-note">トップページが36 PV（全体の47%）で偏重。施工実績ページ・採用ページにも一定の流入あり。</p>
+      <h3>📊 ページ別ページビュー</h3>
+      <p class="chart-note">トップページが36PV、会社概要15PV、続いてお問い合わせ・採用が4PV。施工実績ページにも継続アクセスがあります。</p>
       <div style="margin-top:8px;">
         <div class="mb-wrap"><div class="mb-row"><span>/ （トップページ）</span><span><strong>36 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:100%;background:var(--blue);"></div></div></div>
         <div class="mb-wrap"><div class="mb-row"><span>/about/（会社概要）</span><span><strong>15 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:42%;background:var(--blue);"></div></div></div>
         <div class="mb-wrap"><div class="mb-row"><span>/contact/（お問い合わせ）</span><span><strong>4 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:11%;background:var(--red);"></div></div></div>
         <div class="mb-wrap"><div class="mb-row"><span>/recruit/（採用）</span><span><strong>4 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:11%;background:var(--green);"></div></div></div>
-        <div class="mb-wrap"><div class="mb-row"><span>/service/（サービス）</span><span><strong>3 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:9%;background:var(--blue);"></div></div></div>
-        <div class="mb-wrap"><div class="mb-row"><span>/takagi-construction-company-introduction/（会社紹介記事）</span><span><strong>3 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:9%;background:var(--purple);"></div></div></div>
-        <div class="mb-wrap"><div class="mb-row"><span>/works/（施工実績一覧）</span><span><strong>3 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:9%;background:var(--accent);"></div></div></div>
-        <div class="mb-wrap"><div class="mb-row"><span>/interview/interview1/（インタビュー）</span><span><strong>2 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:6%;background:var(--teal);"></div></div></div>
-        <div class="mb-wrap"><div class="mb-row"><span>/works/mokuzou-jutaku-kaitai-iwaimachi/（八幡東区祝町・解体）</span><span><strong>2 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:6%;background:var(--accent);"></div></div></div>
+        <div class="mb-wrap"><div class="mb-row"><span>/service/（サービス）</span><span><strong>3 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:8%;background:var(--blue);"></div></div></div>
+        <div class="mb-wrap"><div class="mb-row"><span>/takagi-construction-company-introduction/（会社紹介記事）</span><span><strong>3 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:8%;background:var(--purple);"></div></div></div>
+        <div class="mb-wrap"><div class="mb-row"><span>/works/（施工実績一覧）</span><span><strong>3 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:8%;background:var(--accent);"></div></div></div>
+        <div class="mb-wrap"><div class="mb-row"><span>/interview/interview1/（インタビュー）</span><span><strong>2 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:6%;background:var(--green);"></div></div></div>
+        <div class="mb-wrap"><div class="mb-row"><span>/works/mokuzou-jutaku-kaitai-iwaimachi/（八幡東区祝町 解体実績）</span><span><strong>2 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:6%;background:var(--accent);"></div></div></div>
         <div class="mb-wrap"><div class="mb-row"><span>/blog/（ブログ一覧）</span><span><strong>1 PV</strong></span></div><div class="mb"><div class="mb-fill" style="width:3%;background:var(--teal);"></div></div></div>
       </div>
       <div style="margin-top:14px;padding:10px 14px;background:var(--blue-light);border-radius:8px;font-size:.79rem;color:#2a5ca0;">
-        <strong>📌 ポイント：</strong>トップ＋会社概要で全体の66%（51/77 PV）。指名検索からの「会社確認」用途が中心で、新規見込み客の獲得には至っていません。施工実績ページ（/works/系）は合計5 PVと、信頼性確認に貢献し始めています。
+        <strong>📌 ポイント：</strong>トップ＋会社概要で51PV（全体の66.2%）。/works/（施工実績）系には合計5PVあり、信頼性確認の動きが見られます。一方で /blog/ 経由の記事流入が弱く、SEOからの新規流入を伸ばす余地があります。
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">🏗️</div>
+      <div class="alert-body">
+        <h4>施工実績ページ（/works/）が信頼性確認に貢献</h4>
+        <p>/works/ 一覧（3PV）と /works/mokuzou-jutaku-kaitai-iwaimachi/（八幡東区祝町の解体実績、2PV）に継続アクセスがあります。問い合わせ完了1件もあり、施工実績ページがコンバージョン直前の信頼性確認として機能している可能性が高いです。事例の継続追加が受注貢献に直結します。</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 3. SEARCH CONSOLE -->
 <section style="padding-top:0;">
   <div class="container">
     <span class="section-label label-green">Search Console</span>
-    <h2 class="section-title">検索キーワード分析（2026年4月）</h2>
-    <p class="section-desc">全20キーワードで検索表示があり、9件のクリックを獲得。ただしクリックの大半が指名検索です。</p>
+    <h2 class="section-title">検索キーワード分析（4月）</h2>
+    <p class="section-desc">Google検索から流入したキーワードと、表示されているのにクリックされていないキーワードを分析します。</p>
 
     <div class="rank-grid">
       <div class="rank-card">
-        <h4>🔍 クリックを獲得したKW（指名検索のみ）</h4>
+        <h4>🟢 クリックを獲得したキーワード（2語）</h4>
         <div class="rank-item">
           <div class="rn rn-1">1</div>
           <div class="rk">高木工務店</div>
           <div class="rv">8クリック</div>
-          <div class="rpos">指名</div>
+          <div class="rpos">指名検索</div>
         </div>
         <div class="rank-item">
           <div class="rn rn-2">2</div>
           <div class="rk">髙木工務店 <span style="font-size:.65rem;color:var(--gray-400);font-weight:400;">※旧字体</span></div>
           <div class="rv">1クリック</div>
-          <div class="rpos">指名</div>
+          <div class="rpos">指名検索</div>
         </div>
       </div>
       <div class="rank-card">
-        <h4>⚠️ 表示はあるがクリック0のKW（要対策）</h4>
+        <h4>🔴 表示はあるがクリック0のキーワード（抜粋）</h4>
         <div class="rank-item">
           <div class="rn rn-x">—</div>
           <div class="rk" style="font-weight:700;color:var(--accent);">工務店 北九州</div>
-          <div class="rv rv-na">0クリック</div>
-          <div class="rpos">表示あり</div>
-        </div>
-        <div class="rank-item">
-          <div class="rn rn-x">—</div>
-          <div class="rk" style="font-weight:700;color:var(--accent);">北九州 工務店</div>
-          <div class="rv rv-na">0クリック</div>
+          <div class="rv rv-na">0</div>
           <div class="rpos">表示あり</div>
         </div>
         <div class="rank-item">
           <div class="rn rn-x">—</div>
           <div class="rk" style="font-weight:700;color:var(--accent);">北九州市 工務店</div>
-          <div class="rv rv-na">0クリック</div>
+          <div class="rv rv-na">0</div>
           <div class="rpos">表示あり</div>
         </div>
         <div class="rank-item">
           <div class="rn rn-x">—</div>
           <div class="rk" style="font-weight:700;color:var(--accent);">工務店 小倉北区</div>
-          <div class="rv rv-na">0クリック</div>
+          <div class="rv rv-na">0</div>
           <div class="rpos">表示あり</div>
         </div>
         <div class="rank-item">
           <div class="rn rn-x">—</div>
           <div class="rk">工務店 福岡県</div>
-          <div class="rv rv-na">0クリック</div>
+          <div class="rv rv-na">0</div>
           <div class="rpos">表示あり</div>
         </div>
         <div class="rank-item">
           <div class="rn rn-x">—</div>
           <div class="rk">北九州 工務店 一覧</div>
-          <div class="rv rv-na">0クリック</div>
+          <div class="rv rv-na">0</div>
           <div class="rpos">表示あり</div>
         </div>
         <div class="rank-item">
           <div class="rn rn-x">—</div>
           <div class="rk">木造解体.解体工事</div>
-          <div class="rv rv-na">0クリック</div>
+          <div class="rv rv-na">0</div>
+          <div class="rpos">表示あり</div>
+        </div>
+        <div class="rank-item">
+          <div class="rn rn-x">—</div>
+          <div class="rk">高木工務店 福岡</div>
+          <div class="rv rv-na">0</div>
           <div class="rpos">表示あり</div>
         </div>
       </div>
     </div>
 
     <div class="alert alert-star">
-      <div class="alert-icon">⚠</div>
+      <div class="alert-icon">★</div>
       <div class="alert-body">
-        <h4>エリアKWで「表示あり・クリック0」が継続中。CTR改善が最重要施策です</h4>
-        <p>「工務店 北九州」「北九州市 工務店」「工務店 小倉北区」など、本来の見込み客が検索するキーワードで表示はされているにもかかわらず、4月もクリックは0件でした。原因は<strong>タイトルタグと説明文（メタディスクリプション）</strong>が検索意図に応えられていないこと。具体的な対策は施策進捗レポートに記載しています。</p>
+        <h4>クリック0キーワードの原因分析と対策（最重要）</h4>
+        <p><strong>原因の仮説：</strong><br>
+        ① titleタグに「北九州」「解体工事」「55年実績」など差別化要素が明記されておらず、検索結果で他社より魅力的に見えない。<br>
+        ② descriptionに費用感・対応スピード・無料見積の訴求が弱く、クリックの動機が生まれていない。<br>
+        ③ 一般キーワード（「工務店 北九州」等）の表示順位が低く、ユーザーの目に入っていない可能性。<br><br>
+        <strong>対策（具体）：</strong><br>
+        ・トップページのtitleを「北九州市の解体工事・工務店｜55年実績の高木工務店」に変更<br>
+        ・descriptionに「北九州市・解体工事55年・無料見積即日対応」を明記<br>
+        ・/works/ ページに費用目安と工期を追加し、コンテンツを厚くする<br>
+        ・「工務店 北九州」など一般KWで内部リンクを集中させ順位を底上げ</p>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">📝</div>
+      <div class="alert-body">
+        <h4>「髙木工務店」（旧字体）と「高木工務店」で検索が分散しています</h4>
+        <p>4月も指名検索が「高木工務店（8回）」と「髙木工務店（1回）」の2パターンで発生しています。サイト内のメタ情報・フッター・会社概要に両方の表記を含めることで、どちらで検索されてもヒットしやすくなります。</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 4. INSIGHTS -->
 <section style="padding-top:0;">
   <div class="container">
-    <span class="section-label label-purple">Key Insights</span>
+    <span class="section-label label-green">Key Insights</span>
     <h2 class="section-title">分析からわかること・次のアクション</h2>
 
     <div class="insight-panel">
-      <h3>📌 4月データの重要な発見</h3>
+      <h3>📌 4月データから見える重要ポイント</h3>
       <div class="insight-items">
         <div class="ii">
-          <div class="badge b-warn">⚠ 課題</div>
-          <h4>指名検索依存（88.9%）</h4>
-          <p>クリック9件中8件が「高木工務店」での指名検索。すでに会社を知っている人しか来ていません。新規顧客開拓のためにエリアKWのCTR改善が最優先です。</p>
+          <div class="badge b-ok">✅ 良い兆し</div>
+          <h4>お問い合わせ1件獲得（初コンバージョン）</h4>
+          <p>サイト改修後はじめてフォーム完了が記録されました。導線整備の効果が一部出ています。次は「本命の解体工事案件」を獲得できるかが焦点です。</p>
         </div>
         <div class="ii">
           <div class="badge b-warn">⚠ 課題</div>
-          <h4>採用ページ4 PV → 0エントリー</h4>
-          <p>/recruit/ には4 PVあるのにエントリーは0件。CTAボタンや応募フォームの心理的ハードルが高い可能性があります。</p>
+          <h4>エリアKWでクリック0が継続</h4>
+          <p>「工務店 北九州」「北九州市 工務店」「工務店 小倉北区」など売上に直結し得るKWは表示はあるがクリック0。title・descriptionの最適化が最優先です。</p>
         </div>
         <div class="ii">
-          <div class="badge b-ok">✅ 強み</div>
-          <h4>施工実績ページがアクセス上位</h4>
-          <p>/works/ と /works/mokuzou-jutaku-kaitai-iwaimachi/ で合計5 PV。施工実績ページが信頼性確認に貢献しており、4月公開の3件（八幡東区祝町・美容室・三萩野）が機能し始めています。</p>
+          <div class="badge b-warn">⚠ 課題</div>
+          <h4>採用エントリー 0件継続</h4>
+          <p>/recruit/ は4PVあり閲覧はされていますが、エントリー完了には至っていません。CTAボタン位置・応募フォームの簡略化が必要です。</p>
         </div>
         <div class="ii">
           <div class="badge b-data">📊 データ</div>
-          <h4>会社紹介記事に3 PV</h4>
-          <p>2月公開の /takagi-construction-company-introduction/ が継続的に3 PV獲得。50年実績の訴求コンテンツとして機能しています。</p>
+          <h4>記事系ページからの流入が弱い</h4>
+          <p>/blog/ 経由は1PV、ブログ各記事への直接流入もほぼゼロ。SEOで新規流入を増やすには、月2本ペースでの記事継続と、検索ニーズに合った記事テーマ選びが必要です。</p>
+        </div>
+        <div class="ii">
+          <div class="badge b-ok">✅ 強み</div>
+          <h4>施工実績ページが信頼性確認に貢献</h4>
+          <p>/works/ 一覧3PV＋八幡東区祝町2PV。問い合わせ前の判断材料として機能しています。実績の継続追加が受注の決め手になります。</p>
+        </div>
+        <div class="ii">
+          <div class="badge b-star">★ 最優先</div>
+          <h4>5月：title/description最適化</h4>
+          <p>「工務店 北九州」のCTRを0%→1%でも改善できれば、月間表示数次第でクリックが数件〜数十件単位で増える可能性があります。</p>
         </div>
       </div>
     </div>
@@ -426,7 +464,7 @@
 
 <footer>
   <div class="container">
-    高木工務店 GA4 × サーチコンソール 分析レポート — 2026年5月1日 作成（2026年4月データ反映）
+    高木工務店 GA4 × サーチコンソール 分析レポート — 2026年5月3日 作成
   </div>
 </footer>
 </body>
