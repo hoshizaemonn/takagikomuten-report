@@ -245,128 +245,158 @@
     </style>
 </head>
 <body>
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-badge">HP運用レポート</div>
-    <h1>高木工務店 レポート一覧</h1>
-    <p>ホームページ運用に関するレポートをまとめています。各レポートをクリックしてご確認ください。</p>
-    <div class="hero-date">2026年5月1日 更新（2026年4月度データ）</div>
+  <div class="hero-badge">HP運用レポート</div>
+  <h1>高木工務店 レポート一覧</h1>
+  <p>2026年4月のホームページ運用状況をまとめています。各レポートをクリックしてご確認ください。</p>
+  <div class="hero-date">2026年5月3日 更新（4月分データ反映）</div>
 </section>
 
-<!-- CARDS -->
 <section class="cards-section">
-    <div class="container">
-        <h2>2026年4月度 レポート</h2>
-        <p class="subtitle">各カードをクリックすると詳細レポートをご覧いただけます</p>
+  <div class="container">
+    <h2>2026年4月 月次サマリー</h2>
+    <p class="subtitle">先月の運用ハイライトと各レポートへのご案内</p>
 
-        <div class="cards-grid">
+    <div class="cards-grid">
 
-            <div class="card card-blue" style="grid-column: 1 / -1;">
-                <div class="card-bar" style="background: var(--primary);"></div>
-                <div class="card-body" style="flex-direction:row;align-items:center;gap:20px;">
-                    <div style="flex:1;">
-                        <div class="card-title" style="font-size:1.2rem;">まずはこちら — 1枚サマリー</div>
-                        <div class="card-desc" style="margin-bottom:0;">4月の数字（PV 77・検索クリック 9回・お問い合わせ 1件）と次月のアクションを1ページにまとめています。</div>
-                    </div>
-                    <a href="summary.html" class="card-cta" style="background:var(--primary);white-space:nowrap;">
-                        サマリーを見る
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
+      <!-- 本命問い合わせ・受注見込みを最上位に表示 -->
+      <div class="card card-blue" style="grid-column: 1 / -1;">
+        <div class="card-bar" style="background: var(--primary);"></div>
+        <div class="card-body">
+          <div class="card-title" style="font-size:1.15rem;">今月の受注貢献状況（最重要指標）</div>
+          <div class="card-desc" style="margin-bottom:14px;">高木工務店様のゴールである「解体工事の受注」に対し、HPがどれだけ貢献できたかをまとめています。</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px;">
+            <div style="background:var(--gray-100);border-radius:12px;padding:14px;text-align:center;">
+              <div style="font-size:1.6rem;font-weight:900;color:var(--primary);">1件</div>
+              <div style="font-size:.78rem;color:var(--gray-600);font-weight:600;">お問い合わせ完了</div>
+              <div style="font-size:.68rem;color:var(--gray-400);margin-top:3px;">内訳は要確認</div>
             </div>
-
-            <div class="card card-blue">
-                <div class="card-bar"></div>
-                <div class="card-body">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b7dd8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                        </svg>
-                    </div>
-                    <div class="card-title">施策進捗レポート</div>
-                    <div class="card-desc">4月に実施した施策の報告です。施工実績ページ3件公開・木造解体記事の検索表示47回獲得・お問い合わせフォームからの初コンバージョン獲得などをご確認いただけます。</div>
-                    <div class="card-tags">
-                        <span class="tag tag-blue">施工実績3件 公開</span>
-                        <span class="tag tag-blue">木造解体記事 表示47回</span>
-                        <span class="tag tag-blue">初CV 獲得</span>
-                        <span class="tag tag-blue">5月施策 掲載</span>
-                    </div>
-                    <div class="card-date">2026年5月1日更新</div>
-                    <a href="progress-report.html" class="card-cta">
-                        レポートを見る
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
+            <div style="background:var(--gray-100);border-radius:12px;padding:14px;text-align:center;">
+              <div style="font-size:1.6rem;font-weight:900;color:var(--accent);">未確認</div>
+              <div style="font-size:.78rem;color:var(--gray-600);font-weight:600;">本命（解体見積）件数</div>
+              <div style="font-size:.68rem;color:var(--gray-400);margin-top:3px;">内容ヒアリング待ち</div>
             </div>
-
-            <div class="card card-green">
-                <div class="card-bar"></div>
-                <div class="card-body">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ea66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 20V10"/>
-                            <path d="M12 20V4"/>
-                            <path d="M6 20v-6"/>
-                        </svg>
-                    </div>
-                    <div class="card-title">GA4 × サーチコンソール<br>分析レポート</div>
-                    <div class="card-desc">2026年4月のアクセス数・検索順位・ページ別パフォーマンスをまとめました。指名検索「高木工務店」を中心に9回のクリックを獲得。トップページと会社概要が入口として機能しています。</div>
-                    <div class="card-tags">
-                        <span class="tag tag-green">PV 77回</span>
-                        <span class="tag tag-green">検索クリック 9回</span>
-                        <span class="tag tag-green">CV 1件</span>
-                        <span class="tag tag-green">4/1〜4/30</span>
-                    </div>
-                    <div class="card-date">2026年5月1日 最新データ</div>
-                    <a href="ga4-report.html" class="card-cta">
-                        レポートを見る
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
+            <div style="background:var(--gray-100);border-radius:12px;padding:14px;text-align:center;">
+              <div style="font-size:1.6rem;font-weight:900;color:var(--red);">0件</div>
+              <div style="font-size:.78rem;color:var(--gray-600);font-weight:600;">採用エントリー</div>
+              <div style="font-size:.68rem;color:var(--gray-400);margin-top:3px;">先月から横ばい</div>
             </div>
-
-            <div class="card card-orange">
-                <div class="card-bar"></div>
-                <div class="card-body">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8963e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 20V10"/>
-                            <path d="M18 20V4"/>
-                            <path d="M6 20v-4"/>
-                            <path d="M2 20h20"/>
-                        </svg>
-                    </div>
-                    <div class="card-title">業界比較レポート</div>
-                    <div class="card-desc">高木工務店の現在地を業界平均と比較。解体工事55年以上の実績という強みを軸に、エリアキーワードでの上位表示を狙う具体的なアクションプランを記載しています。</div>
-                    <div class="card-tags">
-                        <span class="tag tag-orange">業界平均比較</span>
-                        <span class="tag tag-orange">エリアKW戦略</span>
-                        <span class="tag tag-orange">KPI目標</span>
-                        <span class="tag tag-orange">改善提案</span>
-                    </div>
-                    <div class="card-date">2026年5月1日 更新</div>
-                    <a href="industry-report.html" class="card-cta">
-                        レポートを見る
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
-            </div>
-
+          </div>
+          <div class="card-tags">
+            <span class="tag tag-blue">受注ゴール B2B解体工事</span>
+            <span class="tag tag-orange">本命/準本命/参考の内訳確認中</span>
+          </div>
         </div>
+      </div>
+
+      <!-- サマリー -->
+      <div class="card card-blue" style="grid-column: 1 / -1;">
+        <div class="card-bar" style="background: var(--primary);"></div>
+        <div class="card-body" style="flex-direction:row;align-items:center;gap:20px;">
+          <div style="flex:1;">
+            <div class="card-title" style="font-size:1.2rem;">まずはこちら — 1枚サマリー</div>
+            <div class="card-desc" style="margin-bottom:0;">4月の数字・施策の効果・受注貢献度・次月の重点施策を1ページにまとめています。</div>
+          </div>
+          <a href="summary.html" class="card-cta" style="background:var(--primary);white-space:nowrap;">
+            サマリーを見る
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 進捗 -->
+      <div class="card card-blue">
+        <div class="card-bar"></div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b7dd8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <div class="card-title">施策進捗レポート</div>
+          <div class="card-desc">4月実施の施策と数値ベースの効果検証。施工実績3件公開（八幡東区祝町・美容室・三萩野）と木造解体記事公開の効果、次月のクリック0件KW対策を掲載しています。</div>
+          <div class="card-tags">
+            <span class="tag tag-blue">施工実績3件 公開</span>
+            <span class="tag tag-blue">木造解体記事 公開</span>
+            <span class="tag tag-blue">クリック0件KW分析</span>
+            <span class="tag tag-blue">5月アクション</span>
+          </div>
+          <div class="card-date">2026年5月3日更新</div>
+          <a href="progress-report.html" class="card-cta">
+            レポートを見る
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- GA4 -->
+      <div class="card card-green">
+        <div class="card-bar"></div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ea66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 20V10"/>
+              <path d="M12 20V4"/>
+              <path d="M6 20v-6"/>
+            </svg>
+          </div>
+          <div class="card-title">GA4 × サーチコンソール<br>分析レポート</div>
+          <div class="card-desc">4月の総PV77回、検索クリック9回（うち指名検索8回）の詳細分析。エリアキーワード「工務店 北九州」「北九州市 工務店」は表示はあるがクリック0件で、CTR改善が急務です。</div>
+          <div class="card-tags">
+            <span class="tag tag-green">総PV 77回</span>
+            <span class="tag tag-green">検索クリック 9回</span>
+            <span class="tag tag-green">指名検索が大半</span>
+            <span class="tag tag-green">2026/4/1〜4/30</span>
+          </div>
+          <div class="card-date">2026年5月3日 最新データ</div>
+          <a href="ga4-report.html" class="card-cta">
+            レポートを見る
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 業界 -->
+      <div class="card card-orange">
+        <div class="card-bar"></div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8963e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20V10"/>
+              <path d="M18 20V4"/>
+              <path d="M6 20v-4"/>
+              <path d="M2 20h20"/>
+            </svg>
+          </div>
+          <div class="card-title">業界比較レポート</div>
+          <div class="card-desc">4月PV77回は中小工務店平均（500〜1,500PV）の約1/7。アクセスが少ない原因仮説3つと、どこから増やすかの優先順位（コンテンツ追加→SEO改善→GBP運用）をご提示します。</div>
+          <div class="card-tags">
+            <span class="tag tag-orange">業界平均比較</span>
+            <span class="tag tag-orange">原因仮説 3つ</span>
+            <span class="tag tag-orange">流入増の優先順位</span>
+            <span class="tag tag-orange">6月150PV目標</span>
+          </div>
+          <div class="card-date">2026年5月3日 更新</div>
+          <a href="industry-report.html" class="card-cta">
+            レポートを見る
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<!-- NOTE -->
 <div class="container">
-    <div class="note">
-        <p>このページは毎月1日に自動更新されます。最新の施策状況やデータをいつでもご確認いただけます。<br>ご不明な点はお気軽にお問い合わせください。</p>
-    </div>
+  <div class="note">
+    <p>2026年4月のレポートです。落合健彦様、今月もご質問・ご要望がございましたらお気軽にお申し付けください。<br>今後ともよろしくお願いいたします。</p>
+  </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
-    高木工務店 HP運用レポート — 株式会社一石
+  高木工務店 HP運用レポート — 株式会社一石
 </footer>
 </body>
 </html>
