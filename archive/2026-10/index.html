@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高木工務店 レポート一覧</title>
+    <style>
+        :root {
+            --primary: #1a2744;
+            --green: #2ea66a;
+            --green-light: #d4f0e0;
+            --blue: #3b7dd8;
+            --blue-light: #dfeafb;
+            --accent: #e8963e;
+            --accent-light: rgba(232,150,62,.12);
+            --gray-50: #f8f9fb;
+            --gray-100: #eef0f4;
+            --gray-200: #dce0e8;
+            --gray-400: #9aa2b1;
+            --gray-600: #5c6478;
+            --gray-800: #2d3344;
+            --shadow: 0 2px 16px rgba(26,39,68,.09);
+            --shadow-lg: 0 8px 40px rgba(26,39,68,.13);
+            --radius: 16px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c3e6b 100%);
+            color: #fff;
+            padding: 60px 24px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(46,166,106,.18) 0%, transparent 60%);
+        }
+        .hero > * { position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(46,166,106,.25);
+            border: 1px solid rgba(46,166,106,.4);
+            border-radius: 100px;
+            padding: 6px 20px;
+            font-size: .8rem;
+            letter-spacing: .08em;
+            margin-bottom: 16px;
+            color: #a0f0c0;
+        }
+        .hero h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .hero p {
+            font-size: 1rem;
+            opacity: .8;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .hero-date {
+            font-size: .85rem;
+            opacity: .6;
+            margin-top: 8px;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== CARDS SECTION ===== */
+        .cards-section {
+            padding: 48px 0 64px;
+        }
+        .cards-section h2 {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .cards-section .subtitle {
+            text-align: center;
+            font-size: .9rem;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 700px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform .2s ease, box-shadow .2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .card-bar {
+            height: 5px;
+        }
+        .card-blue .card-bar { background: var(--blue); }
+        .card-green .card-bar { background: var(--green); }
+        .card-orange .card-bar { background: var(--accent); }
+
+        .card-body {
+            padding: 28px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+        .card-blue .card-icon { background: var(--blue-light); }
+        .card-green .card-icon { background: var(--green-light); }
+        .card-orange .card-icon { background: var(--accent-light); }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: .85rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+        .tag-blue { background: var(--blue-light); color: var(--blue); }
+        .tag-green { background: var(--green-light); color: var(--green); }
+        .tag-orange { background: rgba(232,150,62,.12); color: var(--accent); }
+
+        .card-date {
+            font-size: .75rem;
+            color: var(--gray-400);
+            margin-bottom: 16px;
+        }
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: .85rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            transition: opacity .2s ease;
+            align-self: flex-start;
+        }
+        .card-cta:hover { opacity: .85; }
+        .card-blue .card-cta { background: var(--blue); }
+        .card-green .card-cta { background: var(--green); }
+        .card-orange .card-cta { background: var(--accent); }
+        .card-cta svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ===== NOTE ===== */
+        .note {
+            background: var(--gray-100);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin: 0 auto 48px;
+            max-width: 960px;
+            text-align: center;
+        }
+        .note p {
+            font-size: .85rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            font-size: .78rem;
+            color: var(--gray-400);
+            border-top: 1px solid var(--gray-200);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">HP運用レポート</div>
+        <h1>高木工務店 レポート一覧</h1>
+        <p>ホームページ運用に関するレポートをまとめています。各レポートをクリックしてご確認ください。</p>
+        <div class="hero-date">2026年11月2日 更新 — データ期間: 2026年10月19日〜11月1日</div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="cards-section">
+        <div class="container">
+            <h2>2026年10月 月次レポート</h2>
+            <p class="subtitle">各カードをクリックすると詳細レポートをご覧いただけます</p>
+
+            <div class="cards-grid">
+
+                <!-- 今月のハイライト -->
+                <div class="card card-green" style="grid-column: 1 / -1;">
+                    <div class="card-bar" style="background: var(--green);"></div>
+                    <div class="card-body">
+                        <div class="card-title" style="font-size:1.2rem;">🎯 今月のハイライト：お問い合わせ完了 1件を獲得（運用開始から初の本命問い合わせ）</div>
+                        <div class="card-desc">
+                            2週間（10/19〜11/1）で <strong>ページ閲覧 172回・検索クリック 7回</strong>。これまで0件が続いていたお問い合わせ完了が <strong>1件</strong> 発生し、HPが受注導線として機能し始めました。採用エントリーは0件です。<br>
+                            本命問い合わせ件数は <strong>1件</strong>。問い合わせページ <code>/contact/</code> は 8PV で、閲覧8回に対し1件完了（約12%）という水準です。<br>
+                            施工実績ページ <code>/works/mokuzou-tenpo-jutaku-kaitai-misagino/</code> が 8PV、建て替え記事 <code>/blog/tatekae-kaitai-shinchiku-nagare-2026/</code> が 5PV を獲得し、解体・建て替えの具体的な検討層が読む構成に近づいています。<br>
+                            検索キーワードは40語まで拡大。「高木工務店」4クリック、「髙木工務店」1クリック、「北九州市 アスベスト除去」1クリック、「高木工務店 福岡」1クリックと、指名検索に加えて工事内容での流入が1件発生しました。<br>
+                            一方で「解体費用 北九州市」「木造住宅 解体」「工務店 北九州」など33語は表示のみ0クリックで、タイトル・説明文の改善余地が最大の伸びしろです。
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag tag-green">本命問い合わせ 1件</span>
+                            <span class="tag tag-green">PV 172</span>
+                            <span class="tag tag-blue">GSCクリック 7</span>
+                            <span class="tag tag-blue">検索KW 40語</span>
+                            <span class="tag tag-orange">記事 21本公開</span>
+                            <span class="tag tag-orange">採用エントリー 0件</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 1: 施策進捗レポート (blue) -->
+                <div class="card card-blue">
+                    <div class="card-bar"></div>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b7dd8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">施策進捗レポート</div>
+                        <div class="card-desc">2025年12月の運用開始から10月21日公開の「解体費用は何で決まる？見積もりの見方を解説」まで、公開記事21本を1件ずつ時系列で掲載。導線整備・GBP最適化の完了後の効果を、PV172・検索クリック7・お問い合わせ1件の実数で検証しています。</div>
+                        <div class="card-tags">
+                            <span class="tag tag-blue">記事21本 公開済</span>
+                            <span class="tag tag-blue">10月は2本投稿</span>
+                            <span class="tag tag-blue">CV 1件 初達成</span>
+                            <span class="tag tag-blue">効果検証 数値ベース</span>
+                        </div>
+                        <div class="card-date">2026年11月2日更新</div>
+                        <a href="progress-report.html" class="card-cta">
+                            レポートを見る
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: GA4 × サーチコンソール 分析レポート (green) -->
+                <div class="card card-green">
+                    <div class="card-bar"></div>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ea66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 20V10"/>
+                                <path d="M12 20V4"/>
+                                <path d="M6 20v-6"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">GA4 × サーチコンソール<br>分析レポート</div>
+                        <div class="card-desc">10/19〜11/1の全27ページ・172PVを分析。トップページ63PV、会社概要24PV、事業内容9PV、施工実績の詳細ページ8PVなど、どのページが読まれているかを可視化。検索キーワード40語の内訳と、クリック0の32語の改善ポイントも掲載しています。</div>
+                        <div class="card-tags">
+                            <span class="tag tag-green">PV 172 / 27ページ</span>
+                            <span class="tag tag-green">検索KW 40語</span>
+                            <span class="tag tag-green">クリック 7回</span>
+                            <span class="tag tag-green">10/19〜11/1 最新</span>
+                        </div>
+                        <div class="card-date">2026年11月2日 最新データ</div>
+                        <a href="ga4-report.html" class="card-cta">
+                            レポートを見る
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: 業界比較レポート (orange) -->
+                <div class="card card-orange">
+                    <div class="card-bar"></div>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8963e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20V10"/>
+                                <path d="M18 20V4"/>
+                                <path d="M6 20v-4"/>
+                                <path d="M2 20h20"/>
+                            </svg>
+                        </div>
+                        <div class="card-title">業界比較レポート</div>
+                        <div class="card-desc">月間換算 約344PV の現在地を、中小工務店平均（500〜1,500PV）と比較。アクセスが平均を下回る原因の仮説を3つ提示し、コンテンツ・SEO・SNS・広告のどこから投資すべきかを優先順位付きで整理しました。</div>
+                        <div class="card-tags">
+                            <span class="tag tag-orange">月間換算 344PV</span>
+                            <span class="tag tag-orange">原因仮説 3つ</span>
+                            <span class="tag tag-orange">施策の優先順位</span>
+                            <span class="tag tag-orange">KPI目標 更新</span>
+                        </div>
+                        <div class="card-date">2026年11月2日 更新</div>
+                        <a href="industry-report.html" class="card-cta">
+                            レポートを見る
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTE -->
+    <div class="container">
+        <div class="note">
+            <p>このページは毎月更新されます。最新の施策状況やデータをいつでもご確認いただけます。<br>今月はお問い合わせ完了が1件発生しました。受注につながるよう、施工実績ページと費用系記事の強化を続けます。<br>ご不明な点はお気軽にお問い合わせください。</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        高木工務店 HP運用レポート — 株式会社斗
+    </footer>
+
+</body>
+</html>
